@@ -7,10 +7,6 @@ python-docx==0.8.11
 docx==0.2.4
 # Required dependencies
 
-# Build dependencies
-libffi-dev; sys_platform == 'linux'
-gcc; sys_platform == 'linux'
-make; sys_platform == 'linux'
 
 # Additional dependencies
 # Add any other dependencies your project requires here
