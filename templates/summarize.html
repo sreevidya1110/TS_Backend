@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./static/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HistoryCopy</title>
+</head>
+<body>
+    <div class="container-fluid header">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"> 
+            <div class="col-md-3 mb-2 mb-md-0">
+                <img src="{{url_for('static', filename='/images/logo.png')}}" alt="logo image" height="50"/>
+            </div>
+            <div class="d-md-flex align-items-center">
+                <button type="button" class="btn btn-outline-primary">Upgrade to Premium</button>
+                <img src="{{url_for('static', filename='/images/avatar.png')}}" alt="profile icon" height="50"/>
+                <p>{{email}}</p>
+            </div>
+        </header>
+    </div>
+    
+    <div style="margin-left: 0px;" class="container">
+        
+        <div class="row">
+          
+            <div class="col-lg-3">
+                <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 100%;">
+                    <div class="list-group list-group-flush border-bottom scrollarea">
+                        <!-- List group items -->
+                        <!-- This is the current item, not history -->
+                        
+                          {%for i in range(error|length) %} 
+                            <a href="#" class="list-group-item list-group-item-action py-3 lh-sm">
+                                <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">{{error[i]}}</strong>
+                                <small class="text-body-secondary">Tues</small>
+                                </div>
+                                <div class="col-10 mb-1 small">{{msg[i]}}</div>
+                            </a>
+                           {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-lg-9">
+                <h1 class="text-center mb-4">Text Summarization</h1>
+                <div class="row justify-content-center">
+                  <form method="post" action="/summarize" enctype="multipart/form-data">
+                        
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="textInput1">Enter Text:</label>
+                                <textarea name="text" class="form-control" id="textInput1" rows="8">{{input}}</textarea>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <input name="document" type="file" id="uploadDoc" style="display: none;">
+                                <label style="margin-top: 10px" for="uploadDoc" class="btn btn-primary">Upload a Document Instead</label>
+                                <button style="margin-top: 10px" type="submit" class="btn btn-primary">Summarize</button>
+                            </div>
+                        
+                          </div>
+                          <div class="col-lg-6">
+                        
+                            <div class="form-group">
+                                <label for="textInput2">Summarized Text:</label>
+                                <textarea class="form-control" id="textInput2" rows="8">{{summary}}</textarea>
+                            </div>
+                          </div>
+                  </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

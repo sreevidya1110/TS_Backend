@@ -1,0 +1,29 @@
+.btn{
+    background-color:#31363F !important;
+}
+.header{
+    background-color: #76ABAE;
+    width:100%;
+}
+.footer{
+    background-color: #76ABAE;
+    width:100%;
+}
+.html{
+    background-color: #EEEEEE;
+}
+/* .container{
+    height: 50;
+} */
+.login-form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.resizable-textarea {
+    resize: both; 
+    overflow: auto; 
+    min-height: 100px; 
+    max-height: 300px; 
+    width: 10%; 
+}
