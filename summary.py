@@ -1,8 +1,8 @@
 import torch
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-tokenizer = AutoTokenizer.from_pretrained("sreevidya1110/fine_tuned_model")
-model = AutoModelForSeq2SeqLM.from_pretrained("sreevidya1110/fine_tuned_model")
+tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
+model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-cnn_dailymail")
 
 def generate_summary(text):
     # Load fine-tuned Pegasus model and tokenizer
